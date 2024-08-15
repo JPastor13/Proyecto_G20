@@ -15,6 +15,7 @@ import {
   CardFooter,
   Card,
   AbsoluteCenter,
+  Link
 } from "@chakra-ui/react";
 const Tiendas = () => {
   return (
@@ -51,7 +52,7 @@ const Tiendas = () => {
                     w="100%"
                   />
                   <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
+                    <Heading size="md"><Link href='/tiendadetalles'>MR. PAPA</Link></Heading>
                   </Stack>
                 </CardBody>
               </Card>

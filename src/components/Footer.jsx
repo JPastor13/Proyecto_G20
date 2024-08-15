@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <HStack border='solid red 1px' height='308px' justifyContent='center'>
-     <VStack height='250px' width='359px' border='solid red 1px'>
-     
+    <HStack height='308px' justifyContent='center' gap="10rem">
+     <VStack height='250px' width='359px'  bg="linear-gradient(0deg, rgba(235,235,235,1) 45%, rgba(215,207,207,1) 81%)">
      <HStack>
      <Text fontSize='32px' fontWeight='bold'>CONTACTO</Text>
      <Image src="./src/img/wsp.png" alt="whasap"></Image>
@@ -17,14 +16,24 @@ const Footer = () => {
       <Button height='60px' width='320px' colorScheme='black' variant='outline'>COMO LLEGAR</Button>
     </VStack>
      </VStack>
-     <VStack height='250px' width='359px' border='solid red 1px'>
-     <Text fontSize='32px' fontWeight='bold'>HORARIO</Text>
-     <Text></Text>
+     <VStack height='250px' width='359px' bg="linear-gradient(0deg, rgba(235,235,235,1) 45%, rgba(215,207,207,1) 81%)">
+     <Text fontSize='32px' fontWeight='bold' marginTop="5px" >HORARIO</Text>
+      <Text marginTop="7px">Lunes a Domingo</Text>
+      <Text>10:00 am - 10:00 pm</Text>
      </VStack>
-     <VStack height='250px' width='359px' border='solid red 1px'>
-     <Text fontSize='32px' fontWeight='bold'>SIGUENOS</Text>
+      
+     <VStack height='250px' width='359px' justifyContent="space-between" bg="linear-gradient(0deg, rgba(235,235,235,1) 45%, rgba(215,207,207,1) 81%)">
+     <Text fontSize='32px' fontWeight='bold' marginTop="5px" >SIGUENOS</Text>
+     <HStack width="240px">
+      <Image src='./src/img/w.png'></Image>
+      <Image src='./src/img/icono2.png'></Image>
+      <Image src='./src/img/icono3.png'></Image>
+      <Image src='./src/img/icono4.png'></Image>
+     
+     </HStack>
+     <HStack>
 
-
+     </HStack>
      </VStack>
 
     </HStack>

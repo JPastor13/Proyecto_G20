@@ -7,10 +7,9 @@ const Header = () => {
         height='151px' justifyContent='space-between'>
             {/* logo de la plaza */}
             <Image height='150px' width='217' src="./src/img/logo.png" alt="logo de la plaza"  />
-
+            
             <VStack>
-
-                <HStack  border='solid red 1px'>
+                <HStack>
                 <Link  to='/tiendas' >Alquiler</Link>
                 <Link to='/tiendas'>Plano del centro comercial</Link>
                 <Link to='/tiendas'>Comó llegar</Link>
