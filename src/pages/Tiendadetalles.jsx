@@ -199,3 +199,6 @@ const TiendaDetalles = () => {
     </VStack>
   );
 };
+
+
+export default TiendaDetalles;
