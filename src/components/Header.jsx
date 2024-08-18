@@ -17,9 +17,9 @@ const Header = () => {
                 </HStack>
                 <HStack gap='20px' fontSize='20px' textTransform='uppercase'>
                     <Link to='/tiendas'>Tiendas</Link>
-                    <Link to='/productos'>Entrenamientos</Link>
-                    <Link to='/productos'>Productos</Link>
-                    <Link to='/productos'>Productos</Link>
+                    <Link to='/productos'>Entretenimientos</Link>
+                    <Link to='/productos'>Promociones</Link>
+                    <Link to='/productos'>Eventos</Link>
                 </HStack>
             </VStack>
         </HStack>

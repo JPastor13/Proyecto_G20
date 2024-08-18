@@ -1,5 +1,5 @@
 import { Box, Flex, HStack, Image, VStack,Text,StackDivider,SimpleGrid,Stack, CardBody,Heading,Divider,ButtonGroup,Button,CardFooter,Card,AbsoluteCenter,Link,Grid, GridItem  } from '@chakra-ui/react'
-const TiendaDetalles = () =>{
+const raffos = () =>{
     return(
         <VStack bg="#edf0f0"> 
         <Box
@@ -18,7 +18,7 @@ const TiendaDetalles = () =>{
   </Box>
   <Box color="#7d7d7d">
     <Text fontSize="20px" align="center">
-    MR. PAPA
+    RAFFO'S
     </Text>
   </Box>
   <HStack  width='auto'>
@@ -44,14 +44,14 @@ fontWeight='bold'
 <GridItem pl='3' bg='white' height='500px'area={'nav'}>
 
  <Box>
- <Image src="./src/img/paap.jpg" height='500px' width='700px' alt="logo" align='center'></Image>
+ <Image src="./src/img/rafoss-fondo.jpg" height='500px' width='700px' alt="logo" align='center'></Image>
  </Box>
 
 </GridItem>
 <GridItem pl='3' bg='white' width='250px'area={'main'}>
 <Box >
-   Mr. Papa
- <Image src="./src/img/logo_mrpapas.jpg" height='150px' width='90px' alt="eee" position='relative' display='block' margin='auto' align='right'></Image>
+   Raffo's
+ <Image src="./src/img/logo_raffos.jpg" height='150px' width='90px' alt="eee" position='relative' display='block' margin='auto' align='right'></Image>
  </Box>
 </GridItem>
 
@@ -61,7 +61,7 @@ fontWeight='bold'
 
  <HStack>
   <Image src="./src/img/wsp.png"></Image>
-  <Text color="black">456 789 123</Text>
+  <Text color="black">564 459 563</Text>
   </HStack>
   <HStack>
   <Image src="./src/img/reloj.png" alt="icono" width='50px'></Image>
@@ -80,19 +80,19 @@ fontWeight='bold'
 <HStack spacing='220px'>
     <Box w='500px' h='200px' bg='white' >
         <Box height='50px'></Box>
-        <Text color="black">Street Food con las 3B</Text>
-        <Text color="black">  Especialistas en Alitas🍗 , Pollo Broaster,</Text>
-        <Text color="black" > Salchipapas 🍟, Hamburguesas 🍔</Text>
+        <Text color="black">Parrillas, pastas, piqueos y bebidas 🤤 </Text>
+        <Text color="black">Módulos en 📍Plaza Santander y Megaplaza Chimbote</Text>
+        
     </Box>
     <Box w='200px' h='150px' bg='#f6d4fc'>
     <Image src="./src/img/Star.png" alt="estrella" position='relative' display='block' margin='auto' align='right'></Image>
     <Button height='30px' width='200px' colorScheme='black' variant='outline'>DÉJANOS TU OPINIÓN</Button>
     </Box>
   </HStack>
-  <HStack justifyContent='center'>
-    <Image src="./src/img/papa1 1.png" alt="platos" ></Image>
-    <Image src="./src/img/3 1.png" alt="platos" ></Image>
-    <Image src="./src/img/8 1.png" alt="platos" ></Image>
+  <HStack justifyContent='center' gap="5rem" >
+    <Image  width='200px'src="./src/img/plato 1.jpg" alt="platos" ></Image>
+    <Image width='200px' src="./src/img/plato 2.jpg" alt="platos" ></Image>
+    <Image width='200px' src="./src/img/platos 3.jpg" alt="platos" ></Image>
 
   </HStack>
 </Box>
@@ -111,4 +111,4 @@ fontWeight='bold'
     )
 }
 
-export default TiendaDetalles;
+export default raffos;
