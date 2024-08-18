@@ -1,8 +1,8 @@
+import React, { useEffect, useState } from "react";
+import { getallStores } from "../service/api";
+import { Link } from 'react-router-dom';
 import {
-  StackDivider,
-  SimpleGrid,
   Stack,
-  HStack,
   VStack,
   Box,
   CardBody,
@@ -10,14 +10,29 @@ import {
   Text,
   Heading,
   Divider,
-  ButtonGroup,
-  Button,
-  CardFooter,
   Card,
-  AbsoluteCenter,
-  Link
+  AbsoluteCenter
 } from "@chakra-ui/react";
+
 const Tiendas = () => {
+  const [store, setStore] = useState([]);
+
+  useEffect(() => {
+    getStores();
+  }, []);
+
+  const getStores = async () => {
+    const response = await getallStores();
+    console.log(response);
+    setStore(response.data);
+  };
+
+  // Divide los elementos en grupos de 4
+  const groupedItems = [];
+  for (let i = 0; i < store.length; i += 4) {
+    groupedItems.push(store.slice(i, i + 4));
+  }
+
   return (
     <VStack bg="#F9E9F8">
       <Box
@@ -29,9 +44,11 @@ const Tiendas = () => {
         p={2}
         color="#BA1FB5"
       >
-        <Divider border="solid 3px"/>
+        <Divider border="solid 3px" />
         <AbsoluteCenter bg="#F9E9F8" px="400">
-        <Heading as="h1" fontSize="40px" align="center">TIENDAS</Heading>
+          <Heading as="h1" fontSize="40px" align="center">
+            TIENDAS
+          </Heading>
         </AbsoluteCenter>
       </Box>
       <Box color="#BA1FB5">
@@ -41,383 +58,30 @@ const Tiendas = () => {
       </Box>
       <Box bg="#F9E9F8" w="100%" color="white" mt={10}>
         <VStack>
-          <Stack direction={["column", "row"]} spacing="24px">
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md"><Link href='/tiendadetalles'>MR. PAPA</Link></Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_raffos.jpg"
-                    alt="RAFFO'S"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">RAFFO'S</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_rinconfrances.jpeg"
-                    alt="RINCÓN FRANCÉS"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">RINCÓN FRANCÉS</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_donfrancisco.png"
-                    alt="DON FRANCISCO"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">DON FRANCISCO</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-          </Stack>
-
-          <Stack direction={["column", "row"]} spacing="24px">
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-          </Stack>
-
-          <Stack direction={["column", "row"]} spacing="24px">
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-          </Stack>
-
-          <Stack direction={["column", "row"]} spacing="24px">
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-          </Stack>
-
-          <Stack direction={["column", "row"]} spacing="24px">
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-          </Stack>
-
-          <Stack direction={["column", "row"]} spacing="24px">
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-            <Box w="250px" h="250px" bg="yellow.200">
-              <Card maxW="sm" align="center">
-                <CardBody align="center">
-                  <Image
-                    src="./src/img/logo_mrpapas.jpg"
-                    alt="MR. PAPA"
-                    borderRadius="lg"
-                    w="100%"
-                  />
-                  <Stack mt="1">
-                    <Heading size="md">MR. PAPA</Heading>
-                  </Stack>
-                </CardBody>
-              </Card>
-            </Box>
-          </Stack>
+          {groupedItems.map((row, rowIndex) => (
+            <Stack key={rowIndex} direction={["column", "row"]} spacing="24px">
+              {row.map((item, columnIndex) => (
+                <Box key={columnIndex} w="250px" h="250px" bg="yellow.200">
+                  <Card maxW="sm" align="center">
+                    <CardBody align="center">
+                      <Image
+                        src={item.logo}
+                        alt="MR. PAPA"
+                        borderRadius="lg"
+                        w="100%"
+                      />
+                      <Stack mt="1">
+                        <Heading size="md">
+                          <Link to={`/tiendadetalles/${item.id}`}>{item.name}</Link>
+                          
+                        </Heading>
+                      </Stack>
+                    </CardBody>
+                  </Card>
+                </Box>
+              ))}
+            </Stack>
+          ))}
         </VStack>
       </Box>
     </VStack>

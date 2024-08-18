@@ -22,13 +22,13 @@ const Footer = () => {
       <Text>10:00 am - 10:00 pm</Text>
      </VStack>
       
-     <VStack height='250px' width='359px' justifyContent="space-between" bg="linear-gradient(0deg, rgba(235,235,235,1) 45%, rgba(215,207,207,1) 81%)">
+     <VStack height='250px' width='400px' justifyContent="space-between" bg="linear-gradient(0deg, rgba(235,235,235,1) 45%, rgba(215,207,207,1) 81%)">
      <Text fontSize='32px' fontWeight='bold' marginTop="5px" >SIGUENOS</Text>
      <HStack width="240px">
-      <Image src='./src/img/w.png'></Image>
-      <Image src='./src/img/icono2.png'></Image>
-      <Image src='./src/img/icono3.png'></Image>
-      <Image src='./src/img/icono4.png'></Image>
+      <Image src='./src/img/f-removebg-preview 1.png'></Image>
+      <Image src='./src/img/i-removebg-preview 1.png'></Image>
+      <Image src='./src/img/t-removebg-preview 1.png'></Image>
+      <Image src='./src/img/y-removebg-preview 1.png'></Image>
      
      </HStack>
      <HStack>
