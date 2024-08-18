@@ -7,6 +7,9 @@ import Tiendadetalles from '../pages/Tiendadetalles'
 import AllStores from '../Store/AllStores'
 import EditStores from '../Store/EditStores'
 import AddStores from '../Store/AddStores'
+import Contactos from '../pages/Contactos'
+import Comollegar from '../pages/Comollegar'
+import Eventos from '../pages/Eventos'
 const AppRouter = () => {
     return (
         <Routes>
@@ -17,7 +20,10 @@ const AppRouter = () => {
                 <Route path='addstores' element={<AddStores/>}/>
                 <Route path='allstores' element={<AllStores />} />
                 <Route path='/editstores/:id' element={<EditStores/>}/>
-               
+                <Route path='contactos' element={<Contactos />} />
+                <Route path='eventos' element={<Eventos />} />
+                <Route path='Comollegar' element={<Comollegar />} />
+
             </Route>
         </Routes>
     )
