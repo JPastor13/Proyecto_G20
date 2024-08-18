@@ -95,7 +95,7 @@ const EditStores = () => {
               value={logo}
               onChange={(e) => onValueChange(e)}
             />
-            <FormLabel>LOGO</FormLabel>
+            <FormLabel>TELEFONO</FormLabel>
             <Input
               type="text"
               name="phone"
