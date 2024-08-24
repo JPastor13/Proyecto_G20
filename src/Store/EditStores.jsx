@@ -6,12 +6,14 @@ import { useNavigate } from "react-router-dom";
 
 import {
   Box,
-  Container,
   Text,
   FormControl,
   FormLabel,
   Input,
   Button,
+  Image,
+  VStack,
+  HStack
 } from "@chakra-ui/react";
 
 const initialValue = {
@@ -64,14 +66,17 @@ const EditStores = () => {
     console.log(store);
   };
 
+
   const editStoreDetails = async () => {
     await editStores(id, store);
     navigate("/allstores");
   };
   return (
-    <Container>
+    <VStack spacing={4} p={5}>
       <Box my={5}>
-        <Text>ACTUALIZAR TIENDA</Text>
+        <HStack justifyContent="center" p={5}>
+        <FormLabel as="legend">Actulizar Tienda</FormLabel>
+      </HStack>
         <FormControl>
           <Box>
             <FormLabel>STAND</FormLabel>
@@ -88,13 +93,14 @@ const EditStores = () => {
               value={name}
               onChange={(e) => onValueChange(e)}
             />
+            <Box>
             <FormLabel>LOGO</FormLabel>
-            <Input
-              type="text"
-              name="logo"
-              value={logo}
-              onChange={(e) => onValueChange(e)}
-            />
+            
+            
+           <input type='file' name='logo' accept='image/png, image/ipeg' onChange={(e)=> onValueChange(e)}/>
+           <button type='submit'></button>
+            </Box>
+            
             <FormLabel>TELÉFONO</FormLabel>
             <Input
               type="text"
@@ -160,18 +166,13 @@ const EditStores = () => {
             />
           </Box>
 
-          <Box>
-            <Button onClick={() => editStoreDetails()}>Actualizar</Button>
-            <Button
-              onClick={() => navigate("/allstores")}
-              style={{ margin: "0px 20px" }}
-            >
-              Cancel
-            </Button>
-          </Box>
+          <HStack p={2} spacing={2}>
+            <Button onClick={() => editStoreDetails()} variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>Actualizar</Button>
+            <Button onClick={() => navigate("/allstores")} variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>Cancel</Button>
+          </HStack>
         </FormControl>
       </Box>
-    </Container>
+    </VStack>
   );
 };
 

@@ -1,38 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { deleteStores, getallStores } from "../service/api";
+import { AuthContext } from "../context/AuthContext";
 import {
+  TableContainer,
+  TableCaption,
   Table,
   Thead,
   Tbody,
+  Tfoot,
   Tr,
   Th,
   Td,
   Button,
-  Container
+  Container,
+  Text,
+  HStack,
+  VStack,
+  Box,
+  FormControl,
+  FormLabel,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-/*
-const useStyle = makeStyles({
-    table: {
-        width: '80%',
-        margin: '50px 100px 100px 140px',
-    },
-    thead:{
-        '& > *':{
-            background: '#000000',
-            color:'#FFFFFF',
-            fontSize: '16px'
-        }
-    },
-    trow:{
-        '& > *':{
-            fontSize: '16px'
-        }
-    }
-})
-*/
+
 const AllStores = () => {
-  /*const classes = useStyle();*/
+  const { user, logout, isAuth } = useContext(AuthContext);
 
   const [store, setStore] = useState([]);
   useEffect(() => {
@@ -50,46 +41,67 @@ const AllStores = () => {
     getStores();
   };
 
+  if (!isAuth()) {
+    return <Navigate to="/" />;
+  }
+
   return (
-    <Container>
-      <Button>
-        <Link to={'/addstores'}>Agregar Tienda</Link>
-      </Button>
-      <Table>
-        <Thead>
-          <Tr>
-            <Th>ID</Th>
-            <Th>NRO. STAND</Th>
-            <Th>TIENDA</Th>
-            <Th>HORARIO</Th>
-            <Th>TELÉFONO</Th>
-            <Th></Th>
-            <Th></Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {store.map((data, index) => (
-            <Tr key={index}>
-              <Td>{data.id}</Td>
-              <Td>{data.Stand}</Td>
-              <Td>{data.name}</Td>
-              <Td>{data.days_open}</Td>
-              <Td>{data.schedule}</Td>
-              <Td>
-                <Button>
-                  <Link to={`/editstores/${data.id}`}>Editar</Link>
-                </Button>
-                </Td>
-                <Td>
-                <Button onClick={() => deleteData(data.id)} style={{margin: '0px 20px'}} >
-                 Eliminar
-                </Button>
-              </Td>
-            </Tr>
-          ))}
-        </Tbody>
-      </Table>
-    </Container>
+    <VStack spacing={4} align="stretch" p={5}>
+      <FormControl as="fieldset">
+        <HStack justifyContent="space-between" p={2}>
+          <FormLabel as="legend">Usuario: {user.name}</FormLabel>
+          <FormLabel as="legend">
+            <Link colorScheme="teal" onClick={logout}>
+              Cerrar Sesión
+            </Link>
+          </FormLabel>
+        </HStack>
+        <Button variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>
+          <Link to={"/addstores"} >Agregar Tienda</Link>
+        </Button>
+      </FormControl>
+      <Box>
+        <TableContainer>
+          <Table variant="simple">
+            <Thead>
+              <Tr>
+                <Th>ID</Th>
+                <Th>NRO. STAND</Th>
+                <Th>TIENDA</Th>
+                <Th>DÍAS DE APERTURA</Th>
+                <Th>HORARIO</Th>
+                <Th></Th>
+                <Th></Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {store.map((data, index) => (
+                <Tr key={index}>
+                  <Td>{data.id}</Td>
+                  <Td>{data.Stand}</Td>
+                  <Td>{data.name}</Td>
+                  <Td>{data.days_open}</Td>
+                  <Td>{data.schedule}</Td>
+                  <Td>
+                    <Button variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>
+                      <Link to={`/editstores/${data.id}`}>Editar</Link>
+                    </Button>
+                  </Td>
+                  <Td>
+                    <Button variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'
+                      onClick={() => deleteData(data.id)}
+                      style={{ margin: "0px 20px" }}
+                    >
+                      Eliminar
+                    </Button>
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </TableContainer>
+      </Box>
+    </VStack>
   );
 };
 

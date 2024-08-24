@@ -67,6 +67,7 @@ const TiendaDetalles = () => {
 
   const loadStoreData = async () => {
     const response = await getallStores(id);
+    setStore(response.data);
   };
 
   return (

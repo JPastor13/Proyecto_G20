@@ -10,6 +10,8 @@ import {
   FormLabel,
   Input,
   Button,
+  HStack,
+  VStack,
 } from "@chakra-ui/react";
 
 const initialValue = {
@@ -57,11 +59,13 @@ const AddStores = () => {
   };
 
   return (
-    <Container>
+    <VStack spacing={4} p={5}>
       <Box my={5}>
-        <Text>GUARDAR TIENDA</Text>
+      <HStack justifyContent="center" p={5}>
+        <FormLabel as="legend">Guardar Tienda</FormLabel>
+      </HStack>
         <FormControl>
-          <Box>
+          <Box width="400px">
             <FormLabel>STAND</FormLabel>
             <Input
               type="text"
@@ -76,13 +80,14 @@ const AddStores = () => {
               value={name}
               onChange={(e) => onValueChange(e)}
             />
-             <FormLabel>LOGO</FormLabel>
+            <FormLabel>LOGO</FormLabel>
             <Input
               type="text"
               name="logo"
               value={logo}
               onChange={(e) => onValueChange(e)}
             />
+
             <FormLabel>TELÉFONO</FormLabel>
             <Input
               type="text"
@@ -104,7 +109,7 @@ const AddStores = () => {
               value={schedule}
               onChange={(e) => onValueChange(e)}
             />
-             <FormLabel>NIVEL DE PISO</FormLabel>
+            <FormLabel>NIVEL DE PISO</FormLabel>
             <Input
               type="text"
               name="level"
@@ -148,18 +153,13 @@ const AddStores = () => {
             />
           </Box>
 
-          <Box>
-            <Button onClick={() => addStoreDetails()}>Guardar</Button>
-            <Button
-              onClick={() => navigate("/allstores")}
-              style={{ margin: "0px 20px" }}
-            >
-              Cancel
-            </Button>
-          </Box>
+          <HStack p={2} spacing={2}>
+            <Button onClick={() => addStoreDetails()} variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>Guardar</Button>
+            <Button onClick={() => navigate("/allstores")}  variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>Cancel</Button>
+          </HStack>
         </FormControl>
       </Box>
-    </Container>
+    </VStack>
   );
 };
 
