@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   Box,
   HStack,
@@ -38,3 +39,11 @@ const Eventos = () => {
   );
 };
 export default Eventos;
+=======
+const Eventos=()=>{
+    return ( 
+        <div>como llegar</div>
+    ) 
+}
+export default Eventos;
+>>>>>>> d3120d87abea53906d7a59f24345ea5b82f500a0
