@@ -1,12 +1,30 @@
-import { Box, Flex, HStack, Image, VStack,Text,StackDivider,SimpleGrid,Stack, CardBody,Heading,Divider,ButtonGroup,Button,CardFooter,Card,AbsoluteCenter,Link } from '@chakra-ui/react'
-
-
+import { Box, Flex, HStack, Image, VStack,Text,StackDivider,SimpleGrid,Stack, CardBody,Heading,Divider,ButtonGroup,Button,CardFooter,Card,AbsoluteCenter,Link, List,
+  ListItem,
+  ListIcon,
+  OrderedList,
+  UnorderedList, } from '@chakra-ui/react'
+  import "./Home.css";
 
 const Home = () => {
   return (
     <VStack>
-    <HStack width="100%">
-      <Image height="604px" width="100%" src="./src/img/portada.png"  bgRepeat="no-repeat" bgSize="cover"></Image>     
+    <HStack width="100%" class="slider-box">
+<ul>
+  <li>
+  <Image height="604px" width="100%" src="./src/img/portada.png"  bgRepeat="no-repeat" bgSize="cover"></Image>
+  </li>
+  <li>
+  <Image height="604px" width="100%" src="./src/img/2.png"  bgRepeat="no-repeat" bgSize="cover"></Image>
+  </li>
+  <li>
+  <Image height="604px" width="100%" src="./src/img/3.png"  bgRepeat="no-repeat" bgSize="cover"></Image>
+  </li>
+  <li>
+  <Image height="604px" width="100%" src="./src/img/4.png"  bgRepeat="no-repeat" bgSize="cover"></Image>
+  </li>
+ 
+</ul>
+           
      </HStack>
      <VStack width="100%" >
       <Box>

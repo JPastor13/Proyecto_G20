@@ -95,7 +95,6 @@ const EditStores = () => {
             />
             <Box>
             <FormLabel>LOGO</FormLabel>
-<<<<<<< HEAD
             
             
            <input type='file' name='logo' accept='image/png, image/ipeg' onChange={(e)=> onValueChange(e)}/>
@@ -103,15 +102,6 @@ const EditStores = () => {
             </Box>
             
             <FormLabel>TELÉFONO</FormLabel>
-=======
-            <Input
-              type="text"
-              name="logo"
-              value={logo}
-              onChange={(e) => onValueChange(e)}
-            />
-            <FormLabel>TELEFONO</FormLabel>
->>>>>>> d3120d87abea53906d7a59f24345ea5b82f500a0
             <Input
               type="text"
               name="phone"

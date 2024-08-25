@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {
   Box,
   Stack,
@@ -58,11 +57,3 @@ const Comollegar = () => {
   );
 };
 export default Comollegar;
-=======
-const Comollegar=()=>{
-    return ( 
-        <div>como llegar</div>
-    ) 
-}
-export default Comollegar;
->>>>>>> d3120d87abea53906d7a59f24345ea5b82f500a0

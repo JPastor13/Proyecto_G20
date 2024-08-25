@@ -31,7 +31,7 @@ const Header = () => {
           <Link to="/">Home</Link>
           <Link to="/tiendas">Tiendas</Link>
           <Link to="/eventos">Eventos</Link>
-          <Link to="/Comollegar">Comó llegar</Link>
+          <Link to="/Comollegar">Ubícanos</Link>
           <Link to="/contactos">Contactos</Link>
           <Link to="/login">Login</Link>
         </HStack>

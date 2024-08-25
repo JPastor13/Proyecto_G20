@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import {
@@ -143,11 +142,3 @@ const Contactos = () => {
   );
 };
 export default Contactos;
-=======
-const Contactos=()=>{
-    return ( 
-        <div>como llegar</div>
-    ) 
-}
-export default Contactos;
->>>>>>> d3120d87abea53906d7a59f24345ea5b82f500a0
