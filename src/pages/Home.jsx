@@ -20,49 +20,19 @@ import {
   List,
 } from "@chakra-ui/react";
 import "./Home.css";
+import Carousel from "../components/carousel";
+import Carousel2 from "../components/Carousel2";
+
 
 const Home = () => {
+  
   return (
+   
+  <>
     <VStack>
-      <HStack width="100%" class="slider-box">
-        <ul>
-          <li>
-            <Image
-              height="604px"
-              width="100%"
-              src="./src/img/portada.png"
-              bgRepeat="no-repeat"
-              bgSize="cover"
-            ></Image>
-          </li>
-          <li>
-            <Image
-              height="604px"
-              width="100%"
-              src="./src/img/2.png"
-              bgRepeat="no-repeat"
-              bgSize="cover"
-            ></Image>
-          </li>
-          <li>
-            <Image
-              height="604px"
-              width="100%"
-              src="./src/img/3.png"
-              bgRepeat="no-repeat"
-              bgSize="cover"
-            ></Image>
-          </li>
-          <li>
-            <Image
-              height="604px"
-              width="100%"
-              src="./src/img/4.png"
-              bgRepeat="no-repeat"
-              bgSize="cover"
-            ></Image>
-          </li>
-        </ul>
+
+      <HStack width="100%" >
+      <Carousel/>
       </HStack>
       <VStack width="100%">
         <Box>
@@ -250,6 +220,8 @@ const Home = () => {
         </Box>
       </VStack>
     </VStack>
+    </>
   );
 };
+
 export default Home;
