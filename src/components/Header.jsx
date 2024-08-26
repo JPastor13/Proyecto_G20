@@ -16,7 +16,7 @@ const Header = () => {
     <HStack
       bgColor={{ base: "#F5F5F5", md: "#F5F5F5", lg: "#F5F5F5" }}
       height="100px"
-      width="1400px"
+      width="100%"
       justifyContent="space-between"
     >
       {/* logo de la plaza */}
@@ -40,7 +40,7 @@ const Header = () => {
 
 
       <Box>
-<Menu>
+      <Menu>
 
 </Menu>
       </Box>

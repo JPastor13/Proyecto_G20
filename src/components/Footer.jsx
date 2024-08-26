@@ -59,11 +59,9 @@ const Footer = () => {
         <Text fontSize="32px" fontWeight="bold" marginTop="5px">
           SIGUENOS
         </Text>
-        <HStack width="240px">
+        <HStack>
           <Image src="../src/img/f-removebg-preview 1.png"></Image>
           <Image src="../src/img/i-removebg-preview 1.png"></Image>
-          <Image src="../src/img/t-removebg-preview 1.png"></Image>
-          <Image src="../src/img/y-removebg-preview 1.png"></Image>
         </HStack>
         <HStack></HStack>
       </VStack>
