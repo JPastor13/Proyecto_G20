@@ -1,8 +1,5 @@
 import { Box, Flex, HStack, Image, VStack,Text,StackDivider,SimpleGrid,Stack, CardBody,Heading,Divider,ButtonGroup,Button,CardFooter,Card,AbsoluteCenter,Link, List,
-  ListItem,
-  ListIcon,
-  OrderedList,
-  UnorderedList, } from '@chakra-ui/react'
+  } from '@chakra-ui/react'
   import "./Home.css";
 
 const Home = () => {
@@ -40,7 +37,7 @@ const Home = () => {
         position="relative"
         padding="10"
         bg="#F9E9F8"
-        w="100%"
+        w="1500px"
         mt={100}
         p={5}
         color="#BA1FB5"
@@ -48,14 +45,12 @@ const Home = () => {
         <Divider border="solid 3px"/>
         <AbsoluteCenter bg="#F9E9F8" px="400">
         <Heading as="h1" fontSize="40px" align="center"> NUESTRAS TIENDAS</Heading>
-        <Heading as="h2" fontSize="20px" justifyContent='space-between' display='flex' width='100%' align="center"  > HAY PARA TODOS LOS GUSTOS</Heading>
-        </AbsoluteCenter>
-      </Box>
-      <Box color="#BA1FB5">
-        <Text fontSize="20px" align="center">
+        <Text width="100%"fontSize="20px" align="center" whiteSpace="nowrap" overflow="hidden">
           HAY PARA TODOS LOS GUSTOS
         </Text>
+        </AbsoluteCenter>
       </Box>
+
       <Box bg="#F9E9F8" w="100%" color="white" mt={10}>
         <VStack>
           <Stack direction={["column", "row"]} spacing="24px">

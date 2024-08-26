@@ -15,19 +15,20 @@ const Header = () => {
   return (
     <HStack
       bgColor={{ base: "#F5F5F5", md: "#F5F5F5", lg: "#F5F5F5" }}
-      height="151px"
+      height="100px"
+      width="1400px"
       justifyContent="space-between"
     >
       {/* logo de la plaza */}
       <Image
         height="180px"
-        width="217"
+        width="250"
         src="../src/img/logo.png"
         alt="logo de la plaza"
         p={10}
       />
       <VStack p={10}>
-        <HStack gap="50px" fontSize="20px" textTransform="uppercase">
+        <HStack gap="50px" fontSize="20px" textTransform="uppercase" textAlign="center">
           <Link to="/">Home</Link>
           <Link to="/tiendas">Tiendas</Link>
           <Link to="/eventos">Eventos</Link>
