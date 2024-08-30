@@ -21,7 +21,7 @@ import {
 } from "@chakra-ui/react";
 import "./Home.css";
 import Carousel from "../components/carousel";
-import Carousel2 from "../components/Carousel2";
+
 
 
 const Home = () => {
@@ -73,12 +73,12 @@ const Home = () => {
           </AbsoluteCenter>
         </Box>
 
-        <Box bg="#F9E9F8" w="100%" color="white" mt={10}>
-          <VStack>
-            <Stack direction={["column", "row"]} spacing="24px">
-              <Box w="250px" h="250px" bg="yellow.200">
-                <Card maxW="sm" align="center">
-                  <CardBody align="center">
+        <Box bg="#F9E9F8" w="100%" color="white" mt={10} padding="100px" >
+          <VStack >
+            <Stack direction={["column", "row"]} spacing="24px" >
+              <Box w="250px" h="250px" bg="yellow.200" >
+                <Card maxW="sm" align="center" >
+                  <CardBody align="center" >
                     <Image
                       src="./src/img/logo_mrpapas.jpg"
                       alt="MR. PAPA"
@@ -146,12 +146,12 @@ const Home = () => {
               </Box>
             </Stack>
 
-            <Stack direction={["column", "row"]} spacing="24px">
-              <Box w="250px" h="250px" bg="yellow.200">
+            <Stack direction={["column", "row"]} spacing="24px" marginTop="40px">
+              <Box w="250px" h="250px" >
                 <Card maxW="sm" align="center">
                   <CardBody align="center">
                     <Image
-                      src="./src/img/WhatsApp Image 2024-04-18 at 12.51.14 (1) 1.png"
+                      src="./src/img/chanchos.jpeg"
                       alt="DELY'S"
                       borderRadius="lg"
                       w="100%"
@@ -164,7 +164,7 @@ const Home = () => {
                   </CardBody>
                 </Card>
               </Box>
-              <Box w="250px" h="250px" bg="yellow.200">
+              <Box w="250px" h="250px" >
                 <Card maxW="sm" align="center">
                   <CardBody align="center">
                     <Image
@@ -181,7 +181,7 @@ const Home = () => {
                   </CardBody>
                 </Card>
               </Box>
-              <Box w="250px" h="250px" bg="yellow.200">
+              <Box w="250px" h="250px">
                 <Card maxW="sm" align="center">
                   <CardBody align="center">
                     <Image
@@ -198,7 +198,7 @@ const Home = () => {
                   </CardBody>
                 </Card>
               </Box>
-              <Box w="250px" h="250px" bg="yellow.200">
+              <Box w="250px" h="250px" >
                 <Card maxW="sm" align="center">
                   <CardBody align="center">
                     <Image

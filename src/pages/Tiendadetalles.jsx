@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-
+import { FaWhatsapp } from "react-icons/fa6";
 import { getallStores } from "../service/api";
 import { useParams } from "react-router-dom";
-
-
 import {
   Box,
   Flex,
@@ -116,7 +114,7 @@ const TiendaDetalles = () => {
             <GridItem pl="3" bg="white" height="500px" area={"nav"}>
               <Box>
                 <Image
-                  src="./src/img/paap.jpg"
+                  src="../src/img/paap.jpg"
                   height="500px"
                   width="700px"
                   alt="logo"
@@ -145,12 +143,14 @@ const TiendaDetalles = () => {
                 <Box height="50px"></Box>
 
                 <HStack>
-                  <Image src="./src/img/wsp.png"></Image>
+                  <Link href="https://web.whatsapp.com/" isExternal>
+                  <Image src="../src/img/wsp.png"></Image>
+                  </Link>
                   <Text color="black">{phone}</Text>
                 </HStack>
                 <HStack>
                   <Image
-                    src="./src/img/reloj.png"
+                    src="../src/img/reloj.png"
                     alt="icono"
                     width="50px"
                   ></Image>
@@ -160,7 +160,7 @@ const TiendaDetalles = () => {
                   </Text>
                 </HStack>
                 <HStack>
-                  <Image src="./src/img/mapa.png"></Image>
+                  <Image src="../src/img/mapa.png"></Image>
                   <Text color="black">{level}</Text>
                 </HStack>
               </Box>
@@ -175,9 +175,9 @@ const TiendaDetalles = () => {
                      {description}
                     </Text>
                   </Box>
-                  <Box w="200px" h="150px" bg="#f6d4fc">
+                  <Box w="200px" h="150px" bg="#f6d4fc" alignContent="center">
                     <Image
-                      src="./src/img/Star.png"
+                      src="../src/img/Star.png"
                       alt="estrella"
                       position="relative"
                       display="block"
@@ -185,11 +185,17 @@ const TiendaDetalles = () => {
                       align="right"
                     ></Image>
                   </Box>
-                </HStack>
-                <HStack justifyContent="center">
-                  <Image src="./src/img/papa1 1.png" alt="platos"></Image>
-                  <Image src="./src/img/3 1.png" alt="platos"></Image>
-                  <Image src="./src/img/8 1.png" alt="platos"></Image>
+                </HStack  >
+                <HStack justifyContent="center" >
+                <Box  maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' >
+                  <Image height="200px" src={photo_menu_1}></Image>
+                  </Box>
+                  <Box  maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' >
+                  <Image height="200px" src={photo_menu_2}></Image>
+                  </Box>
+                  <Box  maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' >
+                  <Image height="200px" src={photo_menu_3}></Image>
+                  </Box>
                 </HStack>
               </Box>
             </GridItem>

@@ -7,22 +7,25 @@ import {
   Text,
   Heading,
   Button,
+  Link
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import {  } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <HStack height="308px" justifyContent="center" gap="10rem">
+    <HStack height="308px" justifyContent="center" gap="10rem"
+    bg="linear-gradient(0deg, rgba(235,235,235,1) 45%, rgba(215,207,207,1) 81%)">
       <VStack
         height="250px"
         width="359px"
-        bg="linear-gradient(0deg, rgba(235,235,235,1) 45%, rgba(215,207,207,1) 81%)"
       >
         <HStack>
           <Text fontSize="32px" fontWeight="bold">
             CONTACTO
           </Text>
+          <Link href="https://web.whatsapp.com/" isExternal >
           <Image src="../src/img/wsp.png" alt="whasap"></Image>
+          </Link>
         </HStack>
         <VStack>
           <Text> Dirección: Jr. Manuel Villavicencio 472</Text>
@@ -60,8 +63,13 @@ const Footer = () => {
           SIGUENOS
         </Text>
         <HStack>
-          <Image src="../src/img/f-removebg-preview 1.png"></Image>
-          <Image src="../src/img/i-removebg-preview 1.png"></Image>
+        <Link href="https://www.facebook.com/" isExternal>
+          <Image src="../src/img/f-removebg-preview 1.png" ></Image>
+          </Link>
+          <Link href="https://www.instagram.com/" isExternal>
+          <Image src="../src/img/i-removebg-preview 1.png" ></Image>
+          </Link>
+
         </HStack>
         <HStack></HStack>
       </VStack>

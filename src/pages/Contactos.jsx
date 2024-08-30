@@ -19,6 +19,7 @@ import { MdEmail } from "react-icons/md";
 import { FaRegCalendarDays } from "react-icons/fa6";
 import { MdSchedule } from "react-icons/md";
 
+
 const Contactos = () => {
   const form = useRef();
 
@@ -47,7 +48,7 @@ const Contactos = () => {
   };
 
   return (
-    <VStack>
+    <VStack >
       <VStack width="100%">
         <Box
           position="relative"
@@ -68,12 +69,14 @@ const Contactos = () => {
       </VStack>
 
       <Stack
+        height="500px"
+        align="center"
         direction={["column", "row"]}
         spacing="24px"
         justifyContent="center"
         p={10}
       >
-        <Box>
+        <Box >
           <form ref={form} onSubmit={sendEmail}>
             <VStack spacing={4} p={1}>
               <HStack>

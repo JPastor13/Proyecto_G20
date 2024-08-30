@@ -56,24 +56,25 @@ const Tiendas = () => {
           TODAS LAS TIENDAS
         </Text>
       </Box>
-      <Box bg="#F9E9F8" w="100%" color="white" mt={10}>
-        <VStack>
+      <Box bg="#F9E9F8" w="100%" color="white" mt={10} padding="100px">
+        <VStack height="600px" gap="40px">
           {groupedItems.map((row, rowIndex) => (
             <Stack key={rowIndex} direction={["column", "row"]} spacing="24px">
               {row.map((item, columnIndex) => (
-                <Box key={columnIndex} w="250px" h="250px" bg="yellow.200">
-                  <Card maxW="sm" align="center">
-                    <CardBody align="center">
+                <Box key={columnIndex} w="250px" h="250px" bg="yellow.200" >
+                  <Card maxW="sm" align="center" >
+                    <CardBody align="center" >
                       <Image
                         src={item.logo}
                         alt="MR. PAPA"
                         borderRadius="lg"
                         w="100%"
+                        height="200px"
                       />
                       <Stack mt="1">
                         <Heading size="md">
                           <Link to={`/tiendadetalles/${item.id}`}>{item.name}</Link>
-                          
+
                         </Heading>
                       </Stack>
                     </CardBody>
