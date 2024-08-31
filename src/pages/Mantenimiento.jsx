@@ -22,16 +22,16 @@ const Mantenimiento = () => {
         <HStack justifyContent="space-between" p={2}>
           <FormLabel as="legend">Usuario: {user.name}</FormLabel>
           <FormLabel as="legend">
-            <Link colorScheme="teal" onClick={logout}>
+            <Link onClick={logout}>
               Cerrar Sesión
             </Link>
           </FormLabel>
         </HStack>
         <VStack>
-        <Button variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>
+        <Button>
           <Link to={"/allstores"} >Administrar Tiendas</Link>
         </Button>
-        <Button variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>
+        <Button>
           <Link to={"/allevents"} >Administrar Eventos</Link>
         </Button>
         </VStack>

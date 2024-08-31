@@ -51,9 +51,14 @@ const EditEvents = () => {
     console.log(event);
   };
 
+
   const editEventDetails = async () => {
-    await editEvents(url, id, event);
-    navigate("/allevents");
+    try {
+      await editEvents(url, id, event);
+      navigate("/allevents");
+    } catch (error) {
+      console.error("Error editing events:", error);
+    }
   };
 
   if (!isAuth()) {
@@ -68,15 +73,18 @@ const EditEvents = () => {
         </HStack>
         <FormControl>
           <Box>
-            <FormLabel>TÍTULO</FormLabel>
+            <FormLabel>TÍTULO
             <Input
+              id="title"
               type="text"
               name="title"
               value={title}
               onChange={(e) => onValueChange(e)}
             />
+            </FormLabel>
             <FormLabel>IMAGEN</FormLabel>
             <Input
+              id="photo"
               type="text"
               name="photo"
               value={photo}
@@ -84,6 +92,7 @@ const EditEvents = () => {
             />
             <FormLabel>FECHA</FormLabel>
             <Input
+             id="fecha"
               type="text"
               name="fecha"
               value={fecha}
@@ -91,6 +100,7 @@ const EditEvents = () => {
             />
             <FormLabel>HORA</FormLabel>
             <Input
+               id="hora"
               type="text"
               name="hora"
               value={hora}
@@ -101,17 +111,11 @@ const EditEvents = () => {
           <HStack p={2} spacing={2}>
             <Button
               onClick={() => editEventDetails()}
-              variant="solid"
-              backgroundColor="#BA1FB5"
-              color="#FFFFFF"
             >
               Actualizar
             </Button>
             <Button
               onClick={() => navigate("/allevents")}
-              variant="solid"
-              backgroundColor="#BA1FB5"
-              color="#FFFFFF"
             >
               Cancel
             </Button>

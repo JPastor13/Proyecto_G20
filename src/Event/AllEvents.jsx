@@ -54,12 +54,12 @@ const AllEvents = () => {
         <HStack justifyContent="space-between" p={2}>
           <FormLabel as="legend">Usuario: {user.name}</FormLabel>
           <FormLabel as="legend">
-            <Link colorScheme="teal" onClick={logout}>
+            <Link onClick={logout}>
               Cerrar Sesión
             </Link>
           </FormLabel>
         </HStack>
-        <Button variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>
+        <Button>
           <Link to={"/addevents"} >Agregar Eventos</Link>
         </Button>
       </FormControl>
@@ -86,12 +86,12 @@ const AllEvents = () => {
                   <Td>{data.fecha}</Td>
                   <Td>{data.hora}</Td>
                   <Td>
-                    <Button variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>
+                    <Button>
                       <Link to={`/editevents/${data.id}`}>Editar</Link>
                     </Button>
                   </Td>
                   <Td>
-                    <Button variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'
+                    <Button
                       onClick={() => deleteData(data.id)}
                       style={{ margin: "0px 20px" }}
                     >

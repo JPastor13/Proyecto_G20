@@ -86,8 +86,8 @@ const AddStores = () => {
           </Box>
 
           <HStack p={2} spacing={2}>
-            <Button onClick={() => addEventDetails()} variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>Guardar</Button>
-            <Button onClick={() => navigate("/allevents")}  variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>Cancel</Button>
+            <Button onClick={() => addEventDetails()} >Guardar</Button>
+            <Button onClick={() => navigate("/allevents")}>Cancel</Button>
           </HStack>
         </FormControl>
       </Box>

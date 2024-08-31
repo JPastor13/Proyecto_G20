@@ -55,12 +55,12 @@ const AllStores = () => {
         <HStack justifyContent="space-between" p={2}>
           <FormLabel as="legend">Usuario: {user.name}</FormLabel>
           <FormLabel as="legend">
-            <Link colorScheme="teal" onClick={logout}>
+            <Link onClick={logout}>
               Cerrar Sesión
             </Link>
           </FormLabel>
         </HStack>
-        <Button variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>
+        <Button >
           <Link to={"/addstores"} >Agregar Tienda</Link>
         </Button>
       </FormControl>
@@ -87,12 +87,12 @@ const AllStores = () => {
                   <Td>{data.days_open}</Td>
                   <Td>{data.schedule}</Td>
                   <Td>
-                    <Button variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>
+                    <Button>
                       <Link to={`/editstores/${data.id}`}>Editar</Link>
                     </Button>
                   </Td>
                   <Td>
-                    <Button variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'
+                    <Button
                       onClick={() => deleteData(data.id)}
                       style={{ margin: "0px 20px" }}
                     >
