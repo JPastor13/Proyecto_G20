@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { addStores } from "../service/api";
 import { useNavigate } from "react-router-dom";
-
+import { AuthContext } from "../context/AuthContext";
+import { Navigate } from "react-router-dom";
 import {
   Box,
-  Container,
-  Text,
   FormControl,
   FormLabel,
   Input,
@@ -27,9 +26,14 @@ const initialValue = {
   photo_menu_1: "",
   photo_menu_2: "",
   photo_menu_3: "",
+  photo_primary:"",
 };
 
 const AddStores = () => {
+
+  const url = "http://localhost:3006/stores";
+  const { user, logout, isAuth } = useContext(AuthContext);
+
   const [store, setStore] = useState(initialValue);
   const {
     Stand,
@@ -44,6 +48,7 @@ const AddStores = () => {
     photo_menu_1,
     photo_menu_2,
     photo_menu_3,
+    photo_primary
   } = store;
 
   const navigate = useNavigate();
@@ -54,9 +59,13 @@ const AddStores = () => {
   };
 
   const addStoreDetails = async () => {
-    await addStores(store);
+    await addStores(url, store);
     navigate("/allstores");
   };
+
+ if (!isAuth()) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <VStack spacing={4} p={5}>
@@ -149,6 +158,13 @@ const AddStores = () => {
               type="text"
               name="photo_menu_3"
               value={photo_menu_3}
+              onChange={(e) => onValueChange(e)}
+            />
+            <FormLabel>FOTO PRINCIPAL</FormLabel>
+            <Input
+              type="text"
+              name="photo_primary"
+              value={photo_primary}
               onChange={(e) => onValueChange(e)}
             />
           </Box>

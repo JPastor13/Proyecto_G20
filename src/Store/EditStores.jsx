@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import { editStores, getallStores } from "../service/api";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import { AuthContext } from "../context/AuthContext";
+import { Navigate } from "react-router-dom";
 import {
   Box,
-  Text,
   FormControl,
   FormLabel,
   Input,
   Button,
-  Image,
   VStack,
   HStack
 } from "@chakra-ui/react";
@@ -29,9 +28,15 @@ const initialValue = {
   photo_menu_1: "",
   photo_menu_2: "",
   photo_menu_3: "",
+  photo_primary:"",
 };
 
 const EditStores = () => {
+
+  const url = "http://localhost:3006/stores";
+
+  const { user, logout, isAuth } = useContext(AuthContext);
+
   const [store, setStore] = useState(initialValue);
   const {
     Stand,
@@ -46,6 +51,8 @@ const EditStores = () => {
     photo_menu_1,
     photo_menu_2,
     photo_menu_3,
+    photo_primary
+    
   } = store;
 
   const { id } = useParams();
@@ -55,7 +62,7 @@ const EditStores = () => {
   }, []);
 
   const loadStoreData = async () => {
-    const response = await getallStores(id);
+    const response = await getallStores(url, id);
     setStore(response.data);
   };
 
@@ -68,9 +75,14 @@ const EditStores = () => {
 
 
   const editStoreDetails = async () => {
-    await editStores(id, store);
+    await editStores(url, id, store);
     navigate("/allstores");
   };
+
+  if (!isAuth()) {
+    return <Navigate to="/login" />;
+  }
+  
   return (
     <VStack spacing={4} p={5}>
       <Box my={5}>
@@ -93,14 +105,13 @@ const EditStores = () => {
               value={name}
               onChange={(e) => onValueChange(e)}
             />
-            <Box>
             <FormLabel>LOGO</FormLabel>
-            
-            
-           <input type='file' name='logo' accept='image/png, image/ipeg' onChange={(e)=> onValueChange(e)}/>
-           <button type='submit'></button>
-            </Box>
-            
+            <Input
+              type="text"
+              name="logo"
+              value={logo}
+              onChange={(e) => onValueChange(e)}
+            />
             <FormLabel>TELÉFONO</FormLabel>
             <Input
               type="text"
@@ -119,7 +130,7 @@ const EditStores = () => {
             <Input
               type="text"
               name="schedule"
-              value={days_open}
+              value={schedule}
               onChange={(e) => onValueChange(e)}
             />
             <FormLabel>NIVEL DE PISO</FormLabel>
@@ -164,6 +175,13 @@ const EditStores = () => {
               value={photo_menu_3}
               onChange={(e) => onValueChange(e)}
             />
+            <FormLabel>FOTO PRINCIPAL</FormLabel>
+            <Input
+              type="text"
+              name="photo_primary"
+              value={photo_primary}
+              onChange={(e) => onValueChange(e)}
+            />
           </Box>
 
           <HStack p={2} spacing={2}>
@@ -177,3 +195,7 @@ const EditStores = () => {
 };
 
 export default EditStores;
+
+
+
+

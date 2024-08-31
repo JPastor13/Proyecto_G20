@@ -1,49 +1,94 @@
+import React, { useEffect, useState } from "react";
+import { getallEvents } from "../service/api";
+import { Link } from 'react-router-dom';
 import {
-  Box,
-  HStack,
-  Image,
+  Stack,
   VStack,
+  Box,
+  CardBody,
+  Image,
+  Text,
   Heading,
   Divider,
-  AbsoluteCenter,
-  Fade, ScaleFade, Slide, SlideFade, Collapse,Button,fadeConfig,useDisclosure 
+  Card,
+  AbsoluteCenter
 } from "@chakra-ui/react";
 
-const Eventos = () => { 
-  
+const Eventos = () => {
+
+  const url = "http://localhost:3006/events";
+
+  const [event, setEvent] = useState([]);
+
+  useEffect(() => {
+    getEvents();
+  }, []);
+
+  const getEvents = async () => {
+    const response = await getallEvents(url);
+    console.log(response);
+    setEvent(response.data);
+  };
+
+  // Divide los elementos en grupos de 4
+  const groupedItems = [];
+  for (let i = 0; i < event.length; i += 2) {
+    groupedItems.push(event.slice(i, i + 2));
+  }
+
   return (
-    
-      <VStack >
-      <Box  width="100%" height="2000px" bgImage="./src/img/fondoevento.png">        
-      <Image  height="400px" width="700px" margin="3em" marginBottom="200px"src="./src/img/image 1 (1).png" alt="evento 1"></Image>
-      <Image  height="400px" width="700px" margin="3em" float="right" marginBottom="200px"src="./src/img/image 2 (1).png" alt="evento 2"></Image>
-      <Image  height="400px" width="700px" margin="3em" src="./src/img/image 3 (1).png" alt="evento 3"></Image>
+    <VStack bg="#F9E9F8">
+      <Box
+        position="relative"
+        padding="10"
+        bg="#F9E9F8"
+        w="100%"
+        mt={100}
+        p={2}
+        color="#BA1FB5"
+      >
+        <Divider border="solid 3px" />
+        <AbsoluteCenter bg="#F9E9F8" px="400">
+          <Heading as="h1" fontSize="40px" align="center">
+            EVENTOS
+          </Heading>
+        </AbsoluteCenter>
+      </Box>
+      <Box color="#BA1FB5">
+        <Text fontSize="20px" align="center">
+          NO TE LO PUEDES PERDER
+        </Text>
+      </Box>
+      <Box bg="#F9E9F8" w="100%" color="white" mt={10} paddingBottom={20}>
+        <VStack>
+          {groupedItems.map((row, rowIndex) => (
+            <Stack key={rowIndex} direction={["column", "row"]} spacing="24px">
+              {row.map((item, columnIndex) => (
+                <Box key={columnIndex} w="350px" h="350px" bg="yellow.200">
+                  <Card maxW="sm" align="center">
+                    <CardBody align="center">
+                      <Image
+                        src={item.photo}
+                        alt="MR. PAPA"
+                        borderRadius="lg"
+                        w="100%"
+                      />
+                      <Stack mt="1">
+                        <Heading size="md">
+                          <Link>{item.title}</Link>
+                          
+                        </Heading>
+                      </Stack>
+                    </CardBody>
+                  </Card>
+                </Box>
+              ))}
+            </Stack>
+          ))}
+        </VStack>
       </Box>
     </VStack>
   );
+};
 
-
-}
-function ScaleFadeEx() {
-  const { isOpen, onToggle } = useDisclosure()
-
-  return (
-    <>
-      <Button onClick={onToggle}>Click Me</Button>
-      <ScaleFade initialScale={0.9} in={isOpen}>
-        <Box
-          p='40px'
-          color='white'
-          mt='4'
-          bg='teal.500'
-          rounded='md'
-          shadow='md'
-        >
-          Fade
-        </Box>
-      </ScaleFade>
-    </>
-  )
-}
-export default Eventos
-
+export default Eventos;

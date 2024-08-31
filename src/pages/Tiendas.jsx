@@ -15,14 +15,18 @@ import {
 } from "@chakra-ui/react";
 
 const Tiendas = () => {
+
+  const url = "http://localhost:3006/stores";
+  
   const [store, setStore] = useState([]);
+
 
   useEffect(() => {
     getStores();
   }, []);
 
   const getStores = async () => {
-    const response = await getallStores();
+    const response = await getallStores(url);
     console.log(response);
     setStore(response.data);
   };

@@ -4,21 +4,12 @@ import { getallStores } from "../service/api";
 import { useParams } from "react-router-dom";
 import {
   Box,
-  Flex,
   HStack,
   Image,
   VStack,
   Text,
-  StackDivider,
-  SimpleGrid,
-  Stack,
-  CardBody,
   Heading,
   Divider,
-  ButtonGroup,
-  Button,
-  CardFooter,
-  Card,
   AbsoluteCenter,
   Link,
   Grid,
@@ -38,9 +29,11 @@ const initialValue = {
   photo_menu_1: "",
   photo_menu_2: "",
   photo_menu_3: "",
+  photo_primary:"",
 };
 
 const TiendaDetalles = () => {
+  const url = "http://localhost:3006/stores";
   const [store, setStore] = useState(initialValue);
   const {
     Stand,
@@ -55,6 +48,7 @@ const TiendaDetalles = () => {
     photo_menu_1,
     photo_menu_2,
     photo_menu_3,
+    photo_primary,
   } = store;
 
   const { id } = useParams();
@@ -64,7 +58,7 @@ const TiendaDetalles = () => {
   }, []);
 
   const loadStoreData = async () => {
-    const response = await getallStores(id);
+    const response = await getallStores(url,id);
     setStore(response.data);
   };
 
@@ -114,7 +108,7 @@ const TiendaDetalles = () => {
             <GridItem pl="3" bg="white" height="500px" area={"nav"}>
               <Box>
                 <Image
-                  src="../src/img/paap.jpg"
+                  src={photo_primary}
                   height="500px"
                   width="700px"
                   alt="logo"

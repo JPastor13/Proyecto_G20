@@ -1,16 +1,20 @@
 import React, { useEffect, useState, useContext } from "react";
-import { deleteStores, getallStores } from "../service/api";
+import { deleteEvents, getallEvents } from "../service/api";
 import { AuthContext } from "../context/AuthContext";
 import { Navigate } from "react-router-dom";
 import {
   TableContainer,
+  TableCaption,
   Table,
   Thead,
   Tbody,
+  Tfoot,
   Tr,
   Th,
   Td,
   Button,
+  Container,
+  Text,
   HStack,
   VStack,
   Box,
@@ -19,31 +23,30 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-const AllStores = () => {
+const AllEvents = () => {
+  const url = "http://localhost:3006/events";
 
-  const url = "http://localhost:3006/stores";
   const { user, logout, isAuth } = useContext(AuthContext);
 
-  const [store, setStore] = useState([]);
+  const [event, setEvent] = useState([]);
   useEffect(() => {
-    getStores();
+    getEvents();
   }, []);
 
-  const getStores = async () => {
-    const response = await getallStores(url);
+  const getEvents = async () => {
+    const response = await getallEvents(url);
     console.log(response);
-    setStore(response.data);
+    setEvent(response.data);
   };
 
   const deleteData = async (id) => {
-    await deleteStores(url, id);
-    getStores();
+    await deleteEvents(url, id);
+    getEvents();
   };
 
   if (!isAuth()) {
     return <Navigate to="/login" />;
   }
-
 
   return (
     <VStack spacing={4} align="stretch" p={5}>
@@ -57,7 +60,7 @@ const AllStores = () => {
           </FormLabel>
         </HStack>
         <Button variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>
-          <Link to={"/addstores"} >Agregar Tienda</Link>
+          <Link to={"/addevents"} >Agregar Eventos</Link>
         </Button>
       </FormControl>
       <Box>
@@ -66,25 +69,25 @@ const AllStores = () => {
             <Thead>
               <Tr>
                 <Th>ID</Th>
-                <Th>NRO. STAND</Th>
-                <Th>TIENDA</Th>
-                <Th>DÍAS DE APERTURA</Th>
-                <Th>HORARIO</Th>
+                <Th>TÍTULO</Th>
+                <Th>IMAGEN</Th>
+                <Th>FECHA</Th>
+                <Th>HORA</Th>
                 <Th></Th>
                 <Th></Th>
               </Tr>
             </Thead>
             <Tbody>
-              {store.map((data, index) => (
+              {event.map((data, index) => (
                 <Tr key={index}>
                   <Td>{data.id}</Td>
-                  <Td>{data.Stand}</Td>
-                  <Td>{data.name}</Td>
-                  <Td>{data.days_open}</Td>
-                  <Td>{data.schedule}</Td>
+                  <Td>{data.title}</Td>
+                  <Td>{data.photo}</Td>
+                  <Td>{data.fecha}</Td>
+                  <Td>{data.hora}</Td>
                   <Td>
                     <Button variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>
-                      <Link to={`/editstores/${data.id}`}>Editar</Link>
+                      <Link to={`/editevents/${data.id}`}>Editar</Link>
                     </Button>
                   </Td>
                   <Td>
@@ -105,4 +108,4 @@ const AllStores = () => {
   );
 };
 
-export default AllStores;
+export default AllEvents;
