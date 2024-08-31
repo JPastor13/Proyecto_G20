@@ -25,7 +25,7 @@ const initialValue = {
 };
 
 const EditEvents = () => {
-  const url = "https://plazasantanderapi.vercel.app/events";
+  const url = "http://localhost:3006/events";
 
   const { user, logout, isAuth } = useContext(AuthContext);
 

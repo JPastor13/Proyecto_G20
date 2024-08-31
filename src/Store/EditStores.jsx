@@ -33,7 +33,7 @@ const initialValue = {
 
 const EditStores = () => {
 
-  const url = "https://plazasantanderapi.vercel.app/stores";
+  const url = "http://localhost:3006/stores";
 
   const { user, logout, isAuth } = useContext(AuthContext);
 

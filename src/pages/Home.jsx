@@ -25,8 +25,8 @@ import "./Home.css";
 import Carousel from "../components/Carousel";
 
 const Home = () => {
-  const urlStores = "https://plazasantanderapi.vercel.app/stores";
-  const urlEvents = "https://plazasantanderapi.vercel.app/events";
+  const urlStores = "http://localhost:3006/stores";
+  const urlEvents = "http://localhost:3006/events";
   const [store, setStore] = useState([]);
   const [event, setEvent] = useState([]);
 

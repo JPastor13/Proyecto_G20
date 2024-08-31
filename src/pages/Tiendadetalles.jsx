@@ -33,7 +33,7 @@ const initialValue = {
 };
 
 const TiendaDetalles = () => {
-  const url = "https://plazasantanderapi.vercel.app/stores";
+  const url = "http://localhost:3006/stores";
   const [store, setStore] = useState(initialValue);
   const {
     Stand,

@@ -2,50 +2,44 @@ import {
   Box,
   Flex,
   HStack,
-  Image,
   VStack,
   Text,
-  Heading,
   Button,
-  Link
+  Link,
+  Image,
 } from "@chakra-ui/react";
-import {  } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <HStack height="308px" justifyContent="center" gap="10rem"
-    bg="linear-gradient(0deg, rgba(235,235,235,1) 45%, rgba(215,207,207,1) 81%)">
-      <VStack
-        height="250px"
-        width="359px"
-      >
+    <Flex
+      direction={{ base: "column", md: "row" }}
+      height={{ base: "auto", md: "308px" }}
+      justifyContent="center"
+      alignItems="center"
+      gap={{ base: "2rem", md: "10rem" }}
+      bg="linear-gradient(0deg, rgba(235,235,235,1) 45%, rgba(215,207,207,1) 81%)"
+      p={4}
+    >
+      <VStack height="auto" width={{ base: "100%", md: "359px" }} spacing={4}>
         <HStack>
           <Text fontSize="32px" fontWeight="bold">
             CONTACTO
           </Text>
-          <Link href="https://web.whatsapp.com/" isExternal >
-          <Image src="../src/img/wsp.png" alt="whasap"></Image>
+          <Link href="https://web.whatsapp.com/" isExternal>
+            <Image src="../src/img/wsp.png" alt="whatsapp" />
           </Link>
         </HStack>
-        <VStack>
-          <Text> Dirección: Jr. Manuel Villavicencio 472</Text>
-          <Text> Chimbote,Peru</Text>
+        <VStack spacing={2}>
+          <Text>Dirección: Jr. Manuel Villavicencio 472</Text>
+          <Text>Chimbote, Perú</Text>
           <Text>Correo: info@plazasantander.com.pe</Text>
-          <Button
-            height="60px"
-            width="320px"
-            colorScheme="black"
-            variant="outline"
-          >
+          <Button height="60px" width="320px" colorScheme="black" variant="outline">
             COMO LLEGAR
           </Button>
         </VStack>
       </VStack>
-      <VStack
-        height="250px"
-        width="359px"
-        bg="linear-gradient(0deg, rgba(235,235,235,1) 45%, rgba(215,207,207,1) 81%)"
-      >
+
+      <VStack height="auto" width={{ base: "100%", md: "359px" }} spacing={4}>
         <Text fontSize="32px" fontWeight="bold" marginTop="5px">
           HORARIO
         </Text>
@@ -53,27 +47,20 @@ const Footer = () => {
         <Text>10:00 am - 10:00 pm</Text>
       </VStack>
 
-      <VStack
-        height="250px"
-        width="400px"
-        justifyContent="space-between"
-        bg="linear-gradient(0deg, rgba(235,235,235,1) 45%, rgba(215,207,207,1) 81%)"
-      >
+      <VStack height="auto" width={{ base: "100%", md: "400px" }} spacing={4}>
         <Text fontSize="32px" fontWeight="bold" marginTop="5px">
-          SIGUENOS
+          SÍGUENOS
         </Text>
-        <HStack>
-        <Link href="https://www.facebook.com/" isExternal>
-          <Image src="../src/img/f-removebg-preview 1.png" ></Image>
+        <HStack spacing={4}>
+          <Link href="https://www.facebook.com/" isExternal>
+            <Image src="../src/img/f-removebg-preview 1.png" alt="Facebook" />
           </Link>
           <Link href="https://www.instagram.com/" isExternal>
-          <Image src="../src/img/i-removebg-preview 1.png" ></Image>
+            <Image src="../src/img/i-removebg-preview 1.png" alt="Instagram" />
           </Link>
-
         </HStack>
-        <HStack></HStack>
       </VStack>
-    </HStack>
+    </Flex>
   );
 };
 

@@ -25,7 +25,7 @@ import { Link } from "react-router-dom";
 
 const AllStores = () => {
 
-  const url = "https://plazasantanderapi.vercel.app/stores";
+  const url = "http://localhost:3006/stores";
   const { user, logout, isAuth } = useContext(AuthContext);
 
   const [store, setStore] = useState([]);
