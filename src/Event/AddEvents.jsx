@@ -23,7 +23,7 @@ const initialValue = {
 };
 
 const AddStores = () => {
-  const url = "http://localhost:3006/events";
+  const url = "https://plazasantanderapi.vercel.app/events";
   const { user, logout, isAuth } = useContext(AuthContext);
 
   const [event, setEvent] = useState(initialValue);

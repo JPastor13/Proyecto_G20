@@ -14,7 +14,7 @@ const Login = () => {
   };
 
   if (isAuth()) {
-    return <Navigate to="/allstores" />;
+    return <Navigate to="/mantenimiento" />;
   }
 
   return (

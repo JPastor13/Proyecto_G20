@@ -20,18 +20,18 @@ const AppRouter = () => {
             <Route path='/' element={<AppOutlet />}>
            
                 <Route index element={<Home />} />
-                <Route path='tiendas' element={<Tiendas />} />
+                <Route path='/tiendas' element={<Tiendas />} />
                 <Route path='/tiendadetalles/:id' element={<Tiendadetalles/>}/>
-                <Route path='addstores' element={<AddStores/>}/>
-                <Route path='allstores' element={<AllStores />} />
+                <Route path='/addstores' element={<AddStores/>}/>
+                <Route path='/allstores' element={<AllStores />} />
                 <Route path='/editstores/:id' element={<EditStores/>}/>
                 <Route path='/login' element={<Login/>}/>
-                <Route path='contactos' element={<Contactos />} />
-                <Route path='eventos' element={<Eventos />} />
+                <Route path='/contactos' element={<Contactos />} />
+                <Route path='/eventos' element={<Eventos />} />
                 <Route path='/addevents' element={<AddEvents/>}/>
                 <Route path='/allevents' element={<AllEvents />} />
-                <Route path='/editevents/:id' element={<EditEvents/>}/>
-                <Route path='comollegar' element={<Comollegar />} />
+                <Route path='editevents/:id' element={<EditEvents/>}/>
+                <Route path='/comollegar' element={<Comollegar />} />
                 <Route path='/mantenimiento' element={<Mantenimiento />} />
 
             </Route>

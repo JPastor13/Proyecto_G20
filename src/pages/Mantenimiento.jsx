@@ -1,23 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
-import { deleteStores, getallStores } from "../service/api";
+import React, {useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Navigate } from "react-router-dom";
 import {
-  TableContainer,
-  TableCaption,
-  Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
   Button,
-  Container,
-  Text,
   HStack,
   VStack,
-  Box,
   FormControl,
   FormLabel,
 } from "@chakra-ui/react";

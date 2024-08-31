@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { addStores } from "../service/api";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Navigate } from "react-router-dom";
 import {
   Box,
+  Container,
+  Text,
   FormControl,
   FormLabel,
   Input,
@@ -26,12 +28,12 @@ const initialValue = {
   photo_menu_1: "",
   photo_menu_2: "",
   photo_menu_3: "",
-  photo_primary:"",
+  photo_primary: "",
 };
 
 const AddStores = () => {
+  const url = "https://plazasantanderapi.vercel.app/stores";
 
-  const url = "http://localhost:3006/stores";
   const { user, logout, isAuth } = useContext(AuthContext);
 
   const [store, setStore] = useState(initialValue);
@@ -48,7 +50,7 @@ const AddStores = () => {
     photo_menu_1,
     photo_menu_2,
     photo_menu_3,
-    photo_primary
+    photo_primary,
   } = store;
 
   const navigate = useNavigate();
@@ -63,16 +65,16 @@ const AddStores = () => {
     navigate("/allstores");
   };
 
- if (!isAuth()) {
+  if (!isAuth()) {
     return <Navigate to="/login" />;
   }
 
   return (
     <VStack spacing={4} p={5}>
       <Box my={5}>
-      <HStack justifyContent="center" p={5}>
-        <FormLabel as="legend">Guardar Tienda</FormLabel>
-      </HStack>
+        <HStack justifyContent="center" p={5}>
+          <FormLabel as="legend">Guardar Tienda</FormLabel>
+        </HStack>
         <FormControl>
           <Box width="400px">
             <FormLabel>STAND</FormLabel>
@@ -170,8 +172,22 @@ const AddStores = () => {
           </Box>
 
           <HStack p={2} spacing={2}>
-            <Button onClick={() => addStoreDetails()} variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>Guardar</Button>
-            <Button onClick={() => navigate("/allstores")}  variant="solid" backgroundColor = "#BA1FB5"  color='#FFFFFF'>Cancel</Button>
+            <Button
+              onClick={() => addStoreDetails()}
+              variant="solid"
+              backgroundColor="#BA1FB5"
+              color="#FFFFFF"
+            >
+              Guardar
+            </Button>
+            <Button
+              onClick={() => navigate("/allstores")}
+              variant="solid"
+              backgroundColor="#BA1FB5"
+              color="#FFFFFF"
+            >
+              Cancel
+            </Button>
           </HStack>
         </FormControl>
       </Box>

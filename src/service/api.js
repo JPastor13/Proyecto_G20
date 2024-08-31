@@ -10,12 +10,12 @@ export const addStores = async (url,store) => {
     return await axios.post(url,store);
 }
 
-export const editStores = async (url,id, store) => {
+export const editStores = async (url, id, store) => {
     return await axios.put(`${url}/${id}`,store);
 }
 
 
-export const deleteStores = async (url,id) => {
+export const deleteStores = async (url, id) => {
     return await axios.delete(`${url}/${id}`);
 }
 
