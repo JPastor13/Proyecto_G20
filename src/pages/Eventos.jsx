@@ -16,7 +16,7 @@ import {
 
 const Eventos = () => {
 
-  const url = "http://localhost:3006/events";
+  const url = "https://plazasantander-api.onrender.com/events?page=1&per_page=10";
 
   const [event, setEvent] = useState([]);
 
@@ -25,9 +25,9 @@ const Eventos = () => {
   }, []);
 
   const getEvents = async () => {
-    const response = await getallEvents(url);
-    console.log(response);
-    setEvent(response.data);
+    const response = await fetch(url);
+    const data = await response.json();
+    setEvent(data.results);
   };
 
   // Divide los elementos en grupos de 4

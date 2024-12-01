@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getallStores } from "../service/api";
-import { Link } from 'react-router-dom';
+import { json, Link } from 'react-router-dom';
 import {
   Stack,
   VStack,
@@ -15,16 +15,24 @@ import {
 } from "@chakra-ui/react";
 
 const Tiendas = () => {
-
-  const url = "http://localhost:3006/stores";
   
+  const url = "https://plazasantander-api.onrender.com/stores";
   const [store, setStore] = useState([]);
-
+  
 
   useEffect(() => {
-    getStores();
+    getcentrocomerciales();
+    
+    
   }, []);
-
+   const getcentrocomerciales = async()=> {
+    const res = await fetch(url)
+    const data = await res.json()
+    console.log(data)
+    setStore(data.records);
+    
+   };
+  
   const getStores = async () => {
     const response = await getallStores(url);
     console.log(response);

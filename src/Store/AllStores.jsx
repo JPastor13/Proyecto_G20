@@ -25,7 +25,7 @@ import { Link } from "react-router-dom";
 
 const AllStores = () => {
 
-  const url = "http://localhost:3006/stores";
+  const url = "https://plazasantander-api.onrender.com/stores";
   const { user, logout, isAuth } = useContext(AuthContext);
 
   const [store, setStore] = useState([]);
@@ -34,6 +34,7 @@ const AllStores = () => {
   }, []);
 
   const getStores = async () => {
+    console.log("optenerdatos");
     const response = await getallStores(url);
     console.log(response);
     setStore(response.data);

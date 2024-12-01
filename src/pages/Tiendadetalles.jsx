@@ -33,7 +33,7 @@ const initialValue = {
 };
 
 const TiendaDetalles = () => {
-  const url = "http://localhost:3006/stores";
+  const url = "https://plazasantander-api.onrender.com/stores";
   const [store, setStore] = useState(initialValue);
   const {
     Stand,
@@ -58,8 +58,10 @@ const TiendaDetalles = () => {
   }, []);
 
   const loadStoreData = async () => {
-    const response = await getallStores(url,id);
-    setStore(response.data);
+    const response = await fetch(`${url}/${id}`);
+    const data = await response.json();
+    console.log(data)
+    setStore(data.record);
   };
 
   return (

@@ -24,7 +24,7 @@ import {
 import { Link } from "react-router-dom";
 
 const AllEvents = () => {
-  const url = "http://localhost:3006/events";
+  const url = "https://plaza-santander.onrender.com/Centros_Comerciales";
 
   const { user, logout, isAuth } = useContext(AuthContext);
 

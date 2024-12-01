@@ -32,7 +32,7 @@ const initialValue = {
 };
 
 const AddStores = () => {
-  const url = "http://localhost:3006/stores";
+  const url = "https://plazasantander-api.onrender.com/stores";
 
   const { user, logout, isAuth } = useContext(AuthContext);
 

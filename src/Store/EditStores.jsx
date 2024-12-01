@@ -33,7 +33,7 @@ const initialValue = {
 
 const EditStores = () => {
 
-  const url = "http://localhost:3006/stores";
+  const url = "https://plazasantander-api.onrender.com/stores";
 
   const { user, logout, isAuth } = useContext(AuthContext);
 
@@ -98,11 +98,13 @@ const EditStores = () => {
               name="Stand"
               value={Stand}
               onChange={(e) => onValueChange(e)}
+
             />
             <FormLabel>NOMBRE</FormLabel>
             <Input
               type="text"
-              name="name"
+              name="name" required
+              placeholder="Introduce tu nombre"
               value={name}
               onChange={(e) => onValueChange(e)}
             />

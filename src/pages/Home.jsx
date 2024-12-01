@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getallStores, getallEvents } from "../service/api";
-import { Link } from "react-router-dom";
+import { json, Link } from "react-router-dom";
 import {
   Box,
   Flex,
@@ -25,15 +25,23 @@ import "./Home.css";
 import Carousel from "../components/Carousel";
 
 const Home = () => {
-  const urlStores = "http://localhost:3006/stores";
-  const urlEvents = "http://localhost:3006/events";
+  const urlStores = "https://plazasantander-api.onrender.com/stores";
+  const urlEvents = "https://plazasantander-api.onrender.com/events?page=1&per_page=10";
   const [store, setStore] = useState([]);
   const [event, setEvent] = useState([]);
 
   useEffect(() => {
     getStores();
     getEvents();
+    homecentrocomerciales();
+
   }, []);
+
+  const homecentrocomerciales= async()=>{
+    const response = await fetch(urlStores);
+    const data = await response.json();
+    setStore(data.records);
+  }
 
   const getStores = async () => {
     const response = await getallStores(urlStores);
@@ -41,10 +49,10 @@ const Home = () => {
     setStore(response.data);
   };
 
-  const getEvents = async () => {
-    const response = await getallEvents(urlEvents);
-    console.log(response);
-    setEvent(response.data);
+  const getEvents = async() => {
+    const response = await fetch(urlEvents);
+    const data = await response.json();
+    setEvent(data.results);
   };
 
   // Divide los elementos en grupos de 2
